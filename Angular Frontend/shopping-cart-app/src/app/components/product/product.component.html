@@ -1,0 +1,49 @@
+<app-loggedin-navbar *ngIf="!isAdmin"></app-loggedin-navbar>
+<app-admin-navbar *ngIf="isAdmin"></app-admin-navbar>
+
+<div class="container my-4 p-4" style="background-color: white; border-radius: 10px; box-shadow: 0 2px 8px rgb(0 0 0 / 0.1); max-width: 600px;">
+  <h4 class="mb-4 text-center">Product Details</h4>
+
+  <table class="table table-borderless mb-4">
+    <tbody>
+      <tr>
+        <th scope="row" style="width: 40%;">Product ID</th>
+        <td>{{ product?.productId }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Name</th>
+        <td>{{ product?.name }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Description</th>
+        <td>{{ product?.description }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Retail Price</th>
+        <td>{{ product?.retailPrice }}$</td>
+      </tr>
+
+      <!-- Admin-only rows -->
+      <tr *ngIf="isAdmin">
+        <th scope="row">Quantity</th>
+        <td>{{ product?.quantity }}</td>
+      </tr>
+      <tr *ngIf="isAdmin">
+        <th scope="row">Wholesale Price</th>
+        <td>{{ product?.wholesalePrice }}$</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Only show buttons for non-admin -->
+  <div *ngIf="!isAdmin" class="mb-3 text-center">
+    <label for="quantity" class="form-label">Quantity</label> &nbsp;&nbsp;&nbsp;
+    <input type="number" min="1" [(ngModel)]="quantity" class="form-control text-center d-inline-block" style="max-width: 100px;" />
+  </div>
+
+  <div *ngIf="!isAdmin" class="d-flex justify-content-center gap-3">
+    <button class="btn btn-success" (click)="addToWatchlist()">Add to Watchlist</button>
+    <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+    <button class="btn btn-danger" (click)="removeFromWatchlist()">Remove From Watchlist</button>
+  </div>
+</div>

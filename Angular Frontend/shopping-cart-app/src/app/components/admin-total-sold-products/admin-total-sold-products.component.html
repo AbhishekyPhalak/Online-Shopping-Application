@@ -1,0 +1,8 @@
+<div class="card p-3 mb-4 shadow-sm">
+  <h5>Total Sold Products</h5>
+
+  <div *ngIf="error" class="text-danger">{{ error }}</div>
+  <div *ngIf="!error && totalSold !== null">
+    <p class="h4 text-success">{{ totalSold }}</p>
+  </div>
+</div>

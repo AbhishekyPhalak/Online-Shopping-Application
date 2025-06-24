@@ -1,0 +1,41 @@
+<div class="container p-4 my-3" style="background-color: white; border-radius: 10px;">
+  <h4 class="mb-3">All Orders</h4>
+
+  <table class="table table-striped text-center">
+    <thead class="table-dark">
+      <tr>
+        <th>Order ID</th>
+        <th>Date Placed</th>
+        <th>Status</th>
+        <th>Actions</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.orderId }}</td>
+        <td>{{ order.datePlaced | date: 'medium' }}</td>
+        <td>{{ order.orderStatus }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="viewOrder(order.orderId)">View Order</button>
+          <button class="btn btn-danger btn-sm" (click)="cancelOrder(order.orderId)">Cancel</button>
+          <button *ngIf="isAdmin" class="btn btn-success btn-sm" style="margin-left: 8px;" (click)="completeOrder(order.orderId)">
+            Complete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center mt-3" *ngIf="isAdmin">
+  <ng-container *ngFor="let p of pages">
+    <button
+      class="btn btn-outline-primary mx-1"
+      [class.active]="page === p"
+      (click)="goToPage(p)">
+      Page {{ p }}
+    </button>
+  </ng-container>
+</div>
+
+
+</div>

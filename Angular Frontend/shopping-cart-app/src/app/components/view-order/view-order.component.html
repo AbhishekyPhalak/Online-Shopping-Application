@@ -1,0 +1,43 @@
+<app-loggedin-navbar *ngIf="!isAdmin"></app-loggedin-navbar>
+<app-admin-navbar *ngIf="isAdmin"></app-admin-navbar>
+
+<div class="container p-4 my-3" style="background-color: white; border-radius: 10px;">
+  <h4 class="mb-3 text-center">Order #{{ order.orderId }} Details</h4>
+
+  <table class="table table-striped text-center">
+  <thead class="table-dark">
+    <tr>
+      <th>Item ID</th>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th *ngIf="isAdmin">Wholesale Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of (isAdmin ? order.adminItems : order.items)">
+      <td>{{ item.itemId }}</td>
+      <td>{{ item.productName }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.purchasedPrice | number:'1.2-2' }}$</td>
+      <td *ngIf="isAdmin">{{ item.wholesalePrice | number:'1.2-2' }}$</td>
+      <td>
+        <button class="btn btn-secondary btn-sm" (click)="viewProduct(item.productId)">View Product</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <div *ngIf="isAdmin" class="mt-3 text-end">
+    <strong>User:</strong> {{ order.username }}
+  </div>
+
+
+  <div class="text-end mt-4">
+    <button class="btn btn-danger" (click)="cancelOrder(order.orderId)">Cancel Order</button>
+     <button *ngIf="isAdmin" class="btn btn-success ms-2" (click)="completeOrder(order.orderId)">
+      Complete Order
+    </button>
+  </div>
+</div>

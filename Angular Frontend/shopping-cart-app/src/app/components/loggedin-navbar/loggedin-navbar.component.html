@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand" routerLink="/">ShoppingApp</a>
+
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="btn btn-outline-light rounded mx-2" routerLink="/home">
+            <i class="bi bi-house"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-light rounded mx-2" routerLink="/products">
+            <i class="bi bi-box-seam"></i> Products
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-light rounded mx-2" routerLink="/cart">
+            <i class="bi bi-cart"></i> Cart
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-light rounded mx-2" routerLink="/watchlist">
+            <i class="bi bi-star"></i> Watchlist
+          </a>
+        </li>
+        <li class="nav-item">
+        <button class="btn btn-outline-warning rounded mx-2" (click)="signOut()">
+          <i class="bi bi-box-arrow-right"></i> Sign Out
+        </button>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>

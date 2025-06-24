@@ -1,0 +1,41 @@
+<app-loggedin-navbar></app-loggedin-navbar>
+<div class="container my-4 p-4" style="background-color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 800px;">
+  <h4 class="mb-4 text-center">Your Cart</h4>
+
+  <table class="table table-striped text-center" *ngIf="cart.length > 0; else emptyCart">
+    <thead class="table-dark">
+      <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart">
+        <td>{{ item.productId }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.retailPrice.toFixed(2) }}$</td>
+        <td>{{ (item.retailPrice * item.quantity).toFixed(2) }}$</td>
+        <td>
+          <button class="btn btn-sm btn-danger" (click)="removeItem(item.productId)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #emptyCart>
+    <p class="text-center">Your cart is empty.</p>
+  </ng-template>
+
+  <div class="text-end fw-bold me-2" *ngIf="cart.length > 0">
+    Total: ${{ getTotal().toFixed(2) }}
+  </div>
+
+  <div class="text-center mt-4" *ngIf="cart.length > 0">
+    <button class="btn btn-primary" (click)="placeOrder()">Place Order</button>
+  </div>
+</div>

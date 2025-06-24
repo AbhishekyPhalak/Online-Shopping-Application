@@ -1,0 +1,36 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="container my-4 p-4 bg-white rounded shadow">
+  <h4 class="mb-4 text-center">Edit Product</h4>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Name</label>
+      <input formControlName="name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Description</label>
+      <input formControlName="description" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Wholesale Price</label>
+      <input type="number" formControlName="wholesalePrice" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Retail Price</label>
+      <input type="number" formControlName="retailPrice" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Quantity</label>
+      <input type="number" formControlName="quantity" class="form-control" />
+    </div>
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Update</button>
+    </div>
+  </form>
+</div>
