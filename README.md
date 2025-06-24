@@ -87,7 +87,7 @@ The MySQL database includes the following main tables:
 
 ## 🧾 Entity Relationship Diagram (ERD)
 
-![image](![image](https://github.com/user-attachments/assets/1a709a74-6ff7-48e3-9b29-02aef7f0bbc1))
+![image](https://github.com/user-attachments/assets/1a709a74-6ff7-48e3-9b29-02aef7f0bbc1)
 
 ---
 
