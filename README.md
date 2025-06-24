@@ -116,9 +116,6 @@ The MySQL database includes the following main tables:
 ![image](https://github.com/user-attachments/assets/e11e2f36-2c22-4f11-b60a-f9b70a62b1dd)
 ![image](https://github.com/user-attachments/assets/b2f4ba01-bbf7-4fc5-9edf-ddfcc769c539)
 
-### 📌 Admin User Management  
-![image](https://github.com/user-attachments/assets/42120b8b-27de-4481-bd57-3654b6fae871)
-
 ### 📌 Admin Product Management  
 ![image](https://github.com/user-attachments/assets/a1553ead-a73d-4ce7-8e0b-899d126d4fd5)
 
